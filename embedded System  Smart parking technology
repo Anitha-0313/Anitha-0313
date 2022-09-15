@@ -1,0 +1,57 @@
+#include<LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+#define ir1 7
+#define ir2 8
+#define ir3 9
+void setup()
+{
+pinMode(ir1, INPUT);
+pinMode(ir2, INPUT);
+pinMode(ir3, INPUT);
+lcd.begin(16, 2);
+lcd.setCursor(0,0);
+lcd.print("Smart Parking");
+lcd.setCursor(0,1);
+lcd.print("Using IR Sensor");
+delay(5000);
+lcd.clear();
+lcd.setCursor(0,0);
+lcd.print("S1:");
+lcd.setCursor(6,0);
+lcd.print("S2:");
+lcd.setCursor(12,0);
+lcd.print("S3:");
+}
+void loop()
+{
+int value1=digitalRead(ir1);
+if(value1==0)
+{
+lcd.setCursor(0,1);
+lcd.print("Full ");
+}
+else{
+lcd.setCursor(0,1);
+lcd.print("Nill");
+}
+int value2=digitalRead(ir2);
+if(value2==0)
+{
+lcd.setCursor(6,1);
+lcd.print("Full ");
+}
+else{
+lcd.setCursor(6,1);
+lcd.print("Nill");
+}
+int value3=digitalRead(ir3);
+if(value3==0)
+{
+lcd.setCursor(12,1);
+lcd.print("Full ");
+}
+else{
+lcd.setCursor(12,1);
+lcd.print("Nill");
+}
+}
