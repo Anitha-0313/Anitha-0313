@@ -1,0 +1,31 @@
+# Dice roll simulator
+# i have used the topics called :random module, looping, and if-else
+
+import random 
+while True:     
+     print(''' 1. roll the dice             2. exit     ''')    
+     user = int(input("what you want to do\n"))     
+     if user==1:         
+        number = random.randint(1,6)         
+        print(number)     
+     else:         
+        break
+#Random password generator
+# i have used the topics called : random module, joining strings
+import random
+passlen = int(input("enter the length of password"))
+s="abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()?"
+p =  "".join(random.sample(s,passlen ))
+print (p)           
+#Guess the number game
+# i have used some of the topics like:random module, for loop, f strings
+import random
+number = random.randint(1,10)
+for i in range(0,3):
+    user = int(input("guess the number"))
+    if user == number:
+        print("Hurray!!")
+        print(f"you guessed the number right it's {number}")
+        break
+if user != number:
+    print(f"Your guess is incorrect the number is {number}")
